@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "./page.module.css";
 import Link from 'next/link'
 
-import { posts } from './data/posts' 
+import { posts } from '../data/posts'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 type Post = {
   id: string,
@@ -20,19 +20,18 @@ export default function Home() {
       <div>
         {posts.map(({id, title, date}: Post) => (
           <>
-            <Link href="/posts">{title}</Link>
+            <Link href={`/posts/${id}`}>{title}</Link>
             <br />
             <p>{date}</p>
             <br />
           </>
         ))}
-
       </div>
       <Link href="/posts">
-        Posts 
+        Posts
       </Link>
       <Link href="/account">
-        Accounts  
+        Accounts
       </Link>
     </main>
   );
